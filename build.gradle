@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.5'
+}
+apply plugin: 'io.spring.dependency-management'
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = "17"
+
+repositories {
+    mavenCentral()
+}
+ext{
+    junit5 = '5.10.2'
+    assertj = '3.25.3'
+    commons_lang3= '3.14.0'
+    commons_collections4= '4.5.0-M1'
+    slf4jLog4= '2.0.13'
+}
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation('com.fasterxml.jackson.core:jackson-databind:2.17.0')
+    implementation "org.slf4j:slf4j-log4j12:${slf4jLog4}"
+    implementation "org.slf4j:slf4j-api:${slf4jLog4}"
+    implementation "org.assertj:assertj-core:${assertj}"
+    implementation "org.apache.commons:commons-lang3:${commons_lang3}"
+    implementation "org.apache.commons:commons-collections4:${commons_collections4}"
+
+    implementation 'com.google.code.gson:gson:2.10.1'
+    // define a BOM and its version
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.12.0"))
+
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+
+
+    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
+
+    testImplementation(platform("org.junit:junit-bom:${junit5}"))
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
