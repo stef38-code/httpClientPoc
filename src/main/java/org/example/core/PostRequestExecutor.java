@@ -1,15 +1,14 @@
 package org.example.core;
 
-import org.example.model.Post;
+public class PostRequestExecutor<T, R> {
+    private PostRequestMaker<T, R> postRequestMaker;
 
-public class PostRequestExecutor {
-    private PostRequestMaker postRequestMaker;
-
-    public PostRequestExecutor(PostRequestMaker postRequestMaker) {
+    public PostRequestExecutor(PostRequestMaker<T, R> postRequestMaker) {
         this.postRequestMaker = postRequestMaker;
     }
 
-    public String executePostRequest(Post post, String url) throws Exception {
+    public R executePostRequest(T post,
+                                String url) throws Exception {
         return postRequestMaker.makePostRequest(post, url);
     }
 }

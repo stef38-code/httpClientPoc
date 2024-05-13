@@ -9,7 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-public class MakePostRequestJavaHttpClient implements PostRequestMaker<Post> {
+public class MakePostRequestJavaHttpClient implements PostRequestMaker<Post,String> {
     @Override
     public String makePostRequest(Post post,String url) throws Exception {
         HttpClient client = HttpClient.newHttpClient();
