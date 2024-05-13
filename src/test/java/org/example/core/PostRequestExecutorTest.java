@@ -26,22 +26,33 @@ class PostRequestExecutorTest {
 
     @Test
     void executePostRequestSpring() throws Exception {
-        PostRequestExecutor<Post,String> executor = new PostRequestExecutor<>(new MakePostRequestSpring());
-        String response = executor.executePostRequest(post, url);
+        String response = PostRequestExecutor.<Post, String>builder()
+                .postRequestMaker(new MakePostRequestSpring())
+                .body(post)
+                .url(url)
+                .build();
+
         assertThat(response).isNotEmpty().contains("id");
     }
 
     @Test
     void executePostRequestHttpClient() throws Exception {
-        PostRequestExecutor<Post,String> executor = new PostRequestExecutor<>(new MakePostRequestJavaHttpClient());
-        String response = executor.executePostRequest(post, url);
+
+        String response = PostRequestExecutor.<Post, String>builder()
+                .postRequestMaker(new MakePostRequestJavaHttpClient())
+                .body(post)
+                .url(url)
+                .build();
         assertThat(response).isNotEmpty().contains("id");
     }
 
     @Test
     void executePostRequestOkHttp() throws Exception {
-        PostRequestExecutor<Post,String> executor = new PostRequestExecutor<>(new MakePostRequestOkHttp());
-        String response = executor.executePostRequest(post, url);
+        String response = PostRequestExecutor.<Post, String>builder()
+                .postRequestMaker(new MakePostRequestOkHttp())
+                .body(post)
+                .url(url)
+                .build();
         assertThat(response).isNotEmpty().contains("id");
     }
 }

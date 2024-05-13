@@ -16,8 +16,8 @@ class MakePostRequestJavaHttpClientTest {
         post.setBody("bar");
         post.setUserId(1);
 
-        PostRequestExecutor<Post,String> executor = new PostRequestExecutor<>(new MakePostRequestJavaHttpClient());
-        String response = executor.executePostRequest(post, "https://jsonplaceholder.typicode.com/posts");
+        MakePostRequestJavaHttpClient executor = new MakePostRequestJavaHttpClient();
+        String response = executor.makePostRequest(post, "https://jsonplaceholder.typicode.com/posts");
 
         assertThat(response).isNotEmpty().contains("id");
     }
