@@ -19,7 +19,7 @@ public class MakePostRequestRetrofit implements PostRequestMaker {
     }
 
     @Override
-    public String makePostRequest() throws Exception {
+    public String makePostRequest(Post post) throws Exception {
         Gson gson = new GsonBuilder().setLenient().create();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -29,10 +29,7 @@ public class MakePostRequestRetrofit implements PostRequestMaker {
 
         PostService service = retrofit.create(PostService.class);
 
-        Post post = new Post();
-        post.setTitle("foo");
-        post.setBody("bar");
-        post.setUserId(1);
+
 
         Call<ResponseBody> call = service.createPost(post);
 

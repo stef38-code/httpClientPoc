@@ -11,13 +11,8 @@ import java.time.Duration;
 
 public class MakePostRequestJavaHttpClient implements PostRequestMaker {
     @Override
-    public String makePostRequest() throws Exception {
+    public String makePostRequest(Post post) throws Exception {
         HttpClient client = HttpClient.newHttpClient();
-
-        Post post = new Post();
-        post.setTitle("foo");
-        post.setBody("bar");
-        post.setUserId(1);
 
         String json = new Gson().toJson(post);
 

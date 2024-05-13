@@ -11,15 +11,10 @@ import org.springframework.web.client.RestTemplate;
 
 public class MakePostRequestSpring implements PostRequestMaker {
     @Override
-    public String makePostRequest() {
+    public String makePostRequest(Post post) {
             RestTemplate restTemplate = new RestTemplate();
             String url = "https://jsonplaceholder.typicode.com/posts";
 
-            // Création de l'objet à envoyer
-            Post post = new Post();
-            post.setTitle("foo");
-            post.setBody("bar");
-            post.setUserId(1);
 
             // Création des headers
             HttpHeaders headers = new HttpHeaders();

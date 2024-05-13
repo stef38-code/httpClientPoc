@@ -13,15 +13,12 @@ import java.io.IOException;
 
 public class MakePostRequestOkHttp implements PostRequestMaker {
         @Override
-        public String makePostRequest() throws IOException {
+        public String makePostRequest(Post post) throws IOException {
                 OkHttpClient client = new OkHttpClient();
 
                 okhttp3.MediaType JSON =  okhttp3.MediaType.parse("application/json; charset=utf-8");
 
-                Post post = new Post();
-                post.setTitle("foo");
-                post.setBody("bar");
-                post.setUserId(1);
+
 
                 Gson gson = new Gson();
                 String json = gson.toJson(post);

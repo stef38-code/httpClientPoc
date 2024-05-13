@@ -1,5 +1,7 @@
 package org.example.core;
 
+import org.example.model.Post;
+
 public class PostRequestExecutor {
     private PostRequestMaker postRequestMaker;
 
@@ -7,7 +9,7 @@ public class PostRequestExecutor {
         this.postRequestMaker = postRequestMaker;
     }
 
-    public String executePostRequest() throws Exception {
-        return postRequestMaker.makePostRequest();
+    public String executePostRequest(Post post) throws Exception {
+        return postRequestMaker.makePostRequest(post);
     }
 }
