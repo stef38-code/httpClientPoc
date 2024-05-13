@@ -1,4 +1,4 @@
-package org.example.spring;
+package org.example.okhttp;
 
 
 import com.google.gson.Gson;
@@ -6,6 +6,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import org.example.model.Post;
 
 import java.io.IOException;
 

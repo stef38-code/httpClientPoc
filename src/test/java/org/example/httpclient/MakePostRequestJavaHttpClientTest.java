@@ -1,4 +1,4 @@
-package org.example.spring;
+package org.example.httpclient;
 
 import org.junit.jupiter.api.Test;
 

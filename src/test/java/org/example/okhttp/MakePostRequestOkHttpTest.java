@@ -1,4 +1,4 @@
-package org.example.spring;
+package org.example.okhttp;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,5 +1,6 @@
-package org.example.spring;
+package org.example.httpclient;
 import com.google.gson.Gson;
+import org.example.model.Post;
 
 import java.net.URI;
 import java.net.http.HttpClient;

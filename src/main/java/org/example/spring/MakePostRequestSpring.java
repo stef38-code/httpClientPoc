@@ -1,6 +1,7 @@
 package org.example.spring;
 
 
+import org.example.model.Post;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;

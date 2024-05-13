@@ -1,4 +1,4 @@
-package org.example.spring;
+package org.example.retrofit;
 
 import org.junit.jupiter.api.Test;
 

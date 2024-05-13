@@ -1,7 +1,9 @@
-package org.example.spring;
+package org.example.retrofit;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import okhttp3.ResponseBody;
+import org.example.model.Post;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -12,7 +14,7 @@ public class MakePostRequestRetrofit {
 
     public interface PostService {
         @POST("posts")
-        Call<String> createPost(@Body Post post);
+        Call<ResponseBody> createPost(@Body Post post);
     }
 
     public String makePostRequest() throws Exception {
@@ -30,8 +32,9 @@ public class MakePostRequestRetrofit {
         post.setBody("bar");
         post.setUserId(1);
 
-        Call<String> call = service.createPost(post);
+        Call<ResponseBody> call = service.createPost(post);
 
-        return call.execute().body();
+        ResponseBody body = call.execute().body();
+        return body.string();
     }
 }

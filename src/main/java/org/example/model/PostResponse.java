@@ -1,11 +1,12 @@
-package org.example.spring;
+package org.example.model;
 
-public class Post {
+public class PostResponse {
+    private int id;
     private String title;
     private String body;
     private int userId;
 
-    // getters et setters
+    // getters and setters
 
     public String getBody() {
         return body;
@@ -13,6 +14,14 @@ public class Post {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
