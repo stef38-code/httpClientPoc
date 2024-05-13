@@ -1,6 +1,7 @@
 package org.example.spring;
 
 
+import org.example.core.PostRequestMaker;
 import org.example.model.Post;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -8,8 +9,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-public class MakePostRequestSpring {
-    public ResponseEntity<String> makePostRequest() {
+public class MakePostRequestSpring implements PostRequestMaker {
+    @Override
+    public String makePostRequest() {
             RestTemplate restTemplate = new RestTemplate();
             String url = "https://jsonplaceholder.typicode.com/posts";
 
@@ -27,7 +29,7 @@ public class MakePostRequestSpring {
             HttpEntity<Post> entity = new HttpEntity<>(post, headers);
 
             // Envoi de la requête POST
-            return  restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+            return  restTemplate.exchange(url, HttpMethod.POST, entity, String.class).getBody();
     }
 }
 

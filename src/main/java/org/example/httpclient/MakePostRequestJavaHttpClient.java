@@ -1,5 +1,6 @@
 package org.example.httpclient;
 import com.google.gson.Gson;
+import org.example.core.PostRequestMaker;
 import org.example.model.Post;
 
 import java.net.URI;
@@ -8,7 +9,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-public class MakePostRequestJavaHttpClient {
+public class MakePostRequestJavaHttpClient implements PostRequestMaker {
+    @Override
     public String makePostRequest() throws Exception {
         HttpClient client = HttpClient.newHttpClient();
 

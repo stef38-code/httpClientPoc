@@ -6,11 +6,13 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import org.example.core.PostRequestMaker;
 import org.example.model.Post;
 
 import java.io.IOException;
 
-public class MakePostRequestOkHttp {
+public class MakePostRequestOkHttp implements PostRequestMaker {
+        @Override
         public String makePostRequest() throws IOException {
                 OkHttpClient client = new OkHttpClient();
 

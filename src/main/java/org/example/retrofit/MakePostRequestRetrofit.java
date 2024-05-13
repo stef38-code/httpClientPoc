@@ -3,6 +3,7 @@ package org.example.retrofit;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import okhttp3.ResponseBody;
+import org.example.core.PostRequestMaker;
 import org.example.model.Post;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -10,13 +11,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
-public class MakePostRequestRetrofit {
+public class MakePostRequestRetrofit implements PostRequestMaker {
 
     public interface PostService {
         @POST("posts")
         Call<ResponseBody> createPost(@Body Post post);
     }
 
+    @Override
     public String makePostRequest() throws Exception {
         Gson gson = new GsonBuilder().setLenient().create();
 
