@@ -11,7 +11,7 @@ import org.example.model.Post;
 
 import java.io.IOException;
 
-public class MakePostRequestOkHttp implements PostRequestMaker {
+public class MakePostRequestOkHttp implements PostRequestMaker<Post> {
         @Override
         public String makePostRequest(Post post,String url) throws IOException {
                 OkHttpClient client = new OkHttpClient();

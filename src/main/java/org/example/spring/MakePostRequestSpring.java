@@ -8,7 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.client.RestTemplate;
 
-public class MakePostRequestSpring implements PostRequestMaker {
+public class MakePostRequestSpring implements PostRequestMaker<Post> {
     @Override
     public String makePostRequest(Post post,
                                   String url) {

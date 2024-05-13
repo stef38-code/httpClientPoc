@@ -1,7 +1,6 @@
 package org.example.core;
 
-import org.example.model.Post;
-
-public interface PostRequestMaker {
-    String makePostRequest(Post post, String url) throws Exception;
+public interface PostRequestMaker<T> {
+    String makePostRequest(T body,
+                           String url) throws Exception;
 }
