@@ -9,7 +9,7 @@ public class PostRequestExecutor {
         this.postRequestMaker = postRequestMaker;
     }
 
-    public String executePostRequest(Post post) throws Exception {
-        return postRequestMaker.makePostRequest(post);
+    public String executePostRequest(Post post, String url) throws Exception {
+        return postRequestMaker.makePostRequest(post, url);
     }
 }

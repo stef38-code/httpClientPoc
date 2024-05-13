@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class MakePostRequestOkHttp implements PostRequestMaker {
         @Override
-        public String makePostRequest(Post post) throws IOException {
+        public String makePostRequest(Post post,String url) throws IOException {
                 OkHttpClient client = new OkHttpClient();
 
                 okhttp3.MediaType JSON =  okhttp3.MediaType.parse("application/json; charset=utf-8");
@@ -25,7 +25,7 @@ public class MakePostRequestOkHttp implements PostRequestMaker {
 
                 RequestBody body = RequestBody.create(JSON,json );
                 Request request = new Request.Builder()
-                        .url("https://jsonplaceholder.typicode.com/posts")
+                        .url(url)
                         .post(body)
                         .build();
 

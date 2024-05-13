@@ -11,13 +11,13 @@ import java.time.Duration;
 
 public class MakePostRequestJavaHttpClient implements PostRequestMaker {
     @Override
-    public String makePostRequest(Post post) throws Exception {
+    public String makePostRequest(Post post,String url) throws Exception {
         HttpClient client = HttpClient.newHttpClient();
 
         String json = new Gson().toJson(post);
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI("https://jsonplaceholder.typicode.com/posts"))
+                .uri(new URI(url))
                 .timeout(Duration.ofMinutes(1))
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(json))

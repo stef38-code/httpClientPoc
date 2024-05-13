@@ -14,7 +14,7 @@ class MakePostRequestSpringTest {
         post.setBody("bar");
         post.setUserId(1);
         MakePostRequestSpring makePostRequestSpring = new MakePostRequestSpring();
-        String actual = makePostRequestSpring.makePostRequest(post);
+        String actual = makePostRequestSpring.makePostRequest(post,"https://jsonplaceholder.typicode.com/posts");
         assertThat(actual).isNotEmpty().contains("id");
     }
 }

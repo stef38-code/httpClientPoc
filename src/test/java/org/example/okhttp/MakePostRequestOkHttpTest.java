@@ -15,7 +15,7 @@ class MakePostRequestOkHttpTest {
         post.setBody("bar");
         post.setUserId(1);
         MakePostRequestOkHttp makePostRequestOkHttp = new MakePostRequestOkHttp();
-            String actual = makePostRequestOkHttp.makePostRequest(post);
+            String actual = makePostRequestOkHttp.makePostRequest(post,"https://jsonplaceholder.typicode.com/posts");
             assertThat(actual).isNotBlank().contains("id");
     }
 }
